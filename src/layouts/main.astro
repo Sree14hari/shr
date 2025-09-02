@@ -1,0 +1,51 @@
+---
+import "./global.css";
+import Header from "../_components/header/main.astro";
+import Footer from "../_components/footer/main.astro";
+// import Loading from "../_components/loading/main.astro";
+import { ClientRouter } from "astro:transitions";
+
+const {
+  title = "Sreehari R - Shr ✦ coder, learner, thinker",
+  description = "Portfolio of Sreehari R, a passionate learner and developer.",
+} = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:image" content="/og.jpg" />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <ClientRouter fallback="swap" />
+  </head>
+  <body>
+    <svg
+      class="pointer-events-none fixed isolate -z-50 opacity-70 top-0 mix-blend-soft-light"
+      width="100%"
+      height="100%"
+      ><filter id="noise"
+        ><feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.80"
+          numOctaves="4"
+          stitchTiles="stitch"></feTurbulence></filter
+      ><rect width="100%" height="100%" filter="url(#noise)"></rect></svg
+    >
+    <Header />
+    <main class="container min-h-[50vh]">
+      <slot transition:animate="slide" />
+    </main>
+    <Footer />
+    <!-- <Loading /> -->
+  </body>
+</html>

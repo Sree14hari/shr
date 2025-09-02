@@ -1,0 +1,20 @@
+@tailwind base;
+
+@layer base {
+  h1 {
+    @apply my-4 text-slate-500 uppercase;
+  }
+
+  p {
+    @apply text-sm my-4;
+  }
+
+  ul,
+  ol {
+    @apply list-disc list-outside pl-4 my-4;
+  }
+
+  li {
+    @apply text-sm my-2;
+  }
+}

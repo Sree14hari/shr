@@ -1,0 +1,161 @@
+---
+import "./global.css";
+import "./markdown.css";
+import Header from "../_components/header/main.astro";
+import Footer from "../_components/footer/main.astro";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import { getCollection } from "astro:content";
+import { ClientRouter } from "astro:transitions";
+const experiences = await getCollection("featured");
+
+const {
+  title = "Sreehari R - Shr ✦ coder, learner, thinker",
+  frontmatter: { name, logo, timeline, description, role, type, ref_urls, url },
+} = Astro.props;
+
+const slug = url.split("/").pop();
+
+// Select the previous and next experience
+const currentIndex = experiences.findIndex(({ id }) => id === slug);
+
+const prevIndex = currentIndex - 1;
+const nextIndex = currentIndex + 1;
+
+const prev = experiences[prevIndex];
+const next = experiences[nextIndex];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="/favicon.svg" />
+    <title>{`${name} - ${title}`}</title>
+    <meta name="description" content={description} />
+    <meta property="og:image" content="/og.jpg" />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:title" content={`${name} - ${title}`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <ClientRouter fallback="swap" />
+  </head>
+  <body>
+    <svg
+      class="pointer-events-none fixed isolate -z-50 opacity-70 top-0 mix-blend-soft-light"
+      width="100%"
+      height="100%"
+      ><filter id="noise"
+        ><feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.80"
+          numOctaves="4"
+          stitchTiles="stitch"></feTurbulence></filter
+      ><rect width="100%" height="100%" filter="url(#noise)"></rect></svg
+    >
+    <Header />
+    <main class="container !max-w-lg min-h-[50vh]">
+      <div class="flex flex-col items-center justify-center gap-0 pb-10">
+        <Image
+          src={logo}
+          alt={name}
+          loading="eager"
+          width="256"
+          height="256"
+          class={"w-24 mb-2 rounded-md shadow"}
+          transition:name={`work-logo`}
+        />
+        <h1
+          class="text-2xl font-medium shadow text-white normal-case"
+          transition:name={`work-name`}
+        >
+          {name}
+        </h1>
+
+        <h2
+          class="text-sm text-center max-w-sm"
+          transition:name={`work-description`}
+        >
+          {description}
+        </h2>
+
+        <div
+          class="flex relative flex-row gap-5 w-full px-7 py-5 mt-10 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-md"
+          transition:name={`work-toolbar`}
+        >
+          <p class="flex flex-col gap-1 text-left m-0">
+            <span class="uppercase font-bold text-offcolor text-xs">Type</span>
+            <span class="text-sm">{type || "N/A"}</span>
+          </p>
+          <p class="flex flex-col gap-1 flex-1 text-left m-0">
+            <span class="uppercase font-bold text-offcolor text-xs">Role</span>
+            <span class="text-sm">{role || "N/A"}</span>
+          </p>
+          <p class="flex flex-col gap-1 text-left m-0">
+            <span class="uppercase font-bold text-offcolor text-xs"
+              >Timeline</span
+            >
+            <span class="text-sm">{timeline || "N/A"}</span>
+          </p>
+        </div>
+      </div>
+      {
+        !!ref_urls?.length && (
+          <>
+            <p
+              class="uppercase font-bold text-offcolor text-base"
+              transition:name="work-ref-urls"
+            >
+              Link
+            </p>
+            <div class="space-y-4 mb-10">
+              {ref_urls?.map((url: { name: string; url: string }) => (
+                <a
+                  href={url.url}
+                  target="_blank"
+                  aria-label={url.name}
+                  class="flex flex-row gap-2 hover:text-primary text-xs tracking-wider uppercase transition-all duration-200 items-center"
+                >
+                  {url.name || "Untitled Link"}
+                  <Icon class="animate-pulse text-primary" name="lucide:link" />
+                </a>
+              ))}
+            </div>
+          </>
+        )
+      }
+      <slot transition:name="work-content" transition:animate="slide" />
+
+      <p
+        class="mt-20 text-offcolor font-semibold uppercase text-center text-sm"
+      >
+        other works
+      </p>
+      <div
+        class="flex flex-row items-center justify-center gap-4 lowercase text-ds tracking-wider"
+      >
+        <a href="/work" class="text-sm"> All </a>
+        {
+          prev && (
+            <a href={`/work/${prev.id}`} class="text-sm">
+              {" "}
+              {prev.data.name}{" "}
+            </a>
+          )
+        }
+        {
+          next && (
+            <a href={`/work/${next.id}`} class="text-sm">
+              {" "}
+              {next.data.name}{" "}
+            </a>
+          )
+        }
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>

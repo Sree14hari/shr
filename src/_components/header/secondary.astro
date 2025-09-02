@@ -1,0 +1,25 @@
+---
+import { Image } from "astro:assets";
+---
+
+<header
+  class="container flex items-center justify-center gap-2 pt-20"
+  transition:name="header"
+>
+  <a href="/">
+    <Image
+      src="/tam.svg"
+      alt="SHR"
+      srcset="/tam.svg"
+      loading="eager"
+      width={120}
+      height={120}
+      class="w-20 h-auto"
+      transition:name="my-logo"
+    />
+  </a>
+  <div></div>
+</header>
+<h2 class="text-sm [&>span]:text-offcolor text-center">
+  Coder <span>✦</span> Designer <span>✦</span> Thinker
+</h2>

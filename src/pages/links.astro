@@ -1,0 +1,75 @@
+---
+import SecondaryLayout from "../layouts/secondary.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<SecondaryLayout
+  title="Links | Sreehari R - Shr ✦ coder, learner, thinker"
+>
+  <h2 class="text-offcolor text-center">
+    Currently bringing ideas to life at <a
+      href="https://r3actr-r3actr.web.app/"
+      class="font-semibold text-gradient">@r3actr</a
+    >.
+  </h2>
+  <div class="flex flex-row gap-2 items-center justify-center flex-wrap my-8">
+    <a
+      href="mailto:sreehari14shr@gmail.com"
+      target="_blank"
+      class="social-btn"><Icon name="lucide:mail" /></a
+    >
+    <a href="tel:+918848538969" target="_blank" class="social-btn"
+      ><Icon name="lucide:phone" /></a
+    >
+    <a href="/" target="_blank" class="social-btn"
+      ><Icon name="lucide:link" /></a
+    >
+  </div>
+
+  <div
+    class="flex flex-col gap-2 mx-auto w-full max-w-sm p-3 items-center justify-start"
+  >
+    <a href="https://github.com/Sree14hari" target="_blank" class="linktree-btn">
+      <Icon name="lucide:github" />
+      <span>GitHub</span>
+      <Icon class="animate-pulse text-slate-400" name="lucide:arrow-up-right" />
+      <div class="hover-card bg-slate-400"></div>
+    </a>
+    <a
+      href="https://www.linkedin.com/in/sree14hari/"
+      target="_blank"
+      class="linktree-btn"
+    >
+      <Icon name="lucide:linkedin" class="text-secondary" />
+      <span>LinkedIn</span>
+      <Icon class="animate-pulse text-secondary" name="lucide:arrow-up-right" />
+      <div class="hover-card bg-secondary"></div>
+    </a>
+    <a href="https://www.facebook.com/sree14hari" target="_blank" class="linktree-btn">
+      <Icon name="lucide:facebook" class="text-pink-600" />
+      <span>Facebook</span>
+      <Icon class="animate-pulse text-pink-600" name="lucide:arrow-up-right" />
+      <div class="hover-card bg-pink-600"></div>
+    </a>
+    <!-- <a
+      href="https://www.youtube.com/@tamslab"
+      target="_blank"
+      class="linktree-btn"
+    >
+      <Icon name="lucide:youtube" class={"text-red-500"} />
+      <span>YouTube</span>
+      <Icon class="animate-pulse text-red-500" name="lucide:arrow-up-right" />
+      <div class="hover-card bg-red-500"></div>
+    </a> -->
+    <a
+      href="https://www.instagram.com/s_ree.har_i"
+      target="_blank"
+      class="linktree-btn"
+    >
+      <Icon name="lucide:instagram" class="text-ds" />
+      <span>Instagram</span>
+      <Icon class="animate-pulse text-ds" name="lucide:arrow-up-right" />
+      <div class="hover-card bg-ds"></div>
+    </a>
+  </div>
+</SecondaryLayout>

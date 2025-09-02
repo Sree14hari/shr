@@ -1,0 +1,51 @@
+---
+import { Image } from "astro:assets";
+import MainLayout from "../../layouts/main.astro";
+import { getCollection } from "astro:content";
+import { Icon } from "astro-icon/components";
+
+const experiences = await getCollection("featured");
+---
+
+<MainLayout>
+  <h1 class="text-center text-4xl font-serif text-gradient">Works</h1>
+  <p class="mx-auto text-center max-w-sm text-offcolor mt-4">
+    Some of my notable projects and contributions.
+  </p>
+
+  <div
+    class="grid grid-cols-2 md:grid-cols-3 gap-2 items-center justify-center mt-20 relative"
+  >
+    {
+      experiences
+        ?.sort((a, b) => (a.data.index < b.data.index ? 1 : -1))
+        ?.map(({ id, data: { name, role, timeline, logo } }) => (
+          <div class="relative flex flex-col items-center justify-center gap-0 aspect-square [&:hover>a]:scale-100 [&:hover>a]:opacity-100 [&:hover>img]:opacity-60 [&:hover>img]:scale-90 rounded-lg shadow-black bg-background/50 overflow-hidden [&>*]:ease-in-out">
+            <Image
+              src={logo}
+              alt={name}
+              loading="lazy"
+              width="256"
+              height="256"
+              class={
+                "w-16 mb-4 rounded-md delay-100 shadow-2xl ease-in-out transition-all duration-150"
+              }
+              transition:name={`work-${id}`}
+            />
+            <h2 class="text-sm max-w-44 mb-1 shadow text-wrap text-center">
+              {name}
+            </h2>
+            <h3 class="text-xs text-center text-offcolor shadow">{timeline}</h3>
+            <a
+              href={`/work/${id}`}
+              aria-label={name}
+              class="absolute transition-all ease-in-out duration-300 delay-100 drop-shadow-black drop-shadow-md top-0 left-0 flex flex-col gap-3 w-full h-full items-center backdrop-blur-md scale-50 opacity-0 justify-center"
+            >
+              <Icon class="text-3xl" name="lucide:arrow-up-right" />
+              <span class="max-w-40 text-sm text-center">{role}</span>
+            </a>
+          </div>
+        ))
+    }
+  </div>
+</MainLayout>

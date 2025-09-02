@@ -1,0 +1,226 @@
+/* latin-ext */
+@font-face {
+  font-family: "Covered By Your Grace";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/QGYwz-AZahWOJJI9kykWW9mD6opopoqXSOSEHwgsm6Y.woff2)
+    format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Covered By Your Grace";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/QGYwz-AZahWOJJI9kykWW9mD6opopoqXSOSEEQgs.woff2)
+    format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: "Macondo";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/RrQQboN9-iB1IXmOe2LE0Q.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(/fonts/QGYvz_MVcBeNP4NJuktqQ4E.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(/fonts/QGYvz_MVcBeNP4NJtEtq.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --ds: 346 80% 62%;
+    --background: 228 19% 5%;
+    --foreground: 213 26.8% 83.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 154 154% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 202 202% 50%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+/* Hide the scrollbar */
+
+* {
+  /* For Firefox */
+  scrollbar-width: none;
+
+  /* For Chrome, Edge, and Safari */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  -webkit-overflow-scrolling: touch; /* Safari */
+}
+
+/* Create a transparent scrollbar track */
+*::-webkit-scrollbar {
+  width: 0.5em;
+  background-color: transparent;
+}
+
+/* Create a transparent scrollbar thumb */
+*::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 0.25em;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground relative;
+  }
+
+  body:before {
+    content: "";
+    position: absolute;
+    inset: 0px;
+    z-index: -100;
+    top: 0;
+    opacity: 50%;
+    background-image: url(/header-gradient.svg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 1400px;
+    /* Blur */
+    filter: blur(30px);
+  }
+
+  .text-gradient {
+    @apply bg-gradient-logo bg-clip-text text-transparent bg-cover;
+  }
+
+  .text-ds-gradient {
+    @apply bg-gradient-ds bg-clip-text text-transparent bg-cover;
+  }
+
+  .child-gradient {
+    @apply [&>span]:text-gradient [&>svg]:text-gradient;
+  }
+
+  .clip-title {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .container {
+    @apply mx-auto !max-w-3xl p-4 !overflow-visible;
+  }
+
+  .text-offcolor {
+    @apply text-slate-500;
+  }
+
+  .social-link {
+    @apply text-offcolor hover:text-slate-300 transition-colors inline-flex items-center gap-2 text-sm font-semibold [&>svg]:text-lg;
+  }
+
+  .sayhi-link {
+    @apply text-gradient inline-flex items-center gap-2 text-sm font-semibold [&>svg]:text-[#00FF8F];
+  }
+
+  .footer-link {
+    @apply social-link text-xs md:text-sm font-normal;
+  }
+
+  .capsule-btn {
+    @apply bg-gradient-logo text-background rounded-full px-4 py-2 font-semibold text-sm shadow-md hover:shadow-lg transition-shadow;
+  }
+
+  .social-btn {
+    @apply text-offcolor text-2xl p-2 bg-[#00FF8F] bg-opacity-0 hover:bg-opacity-5 hover:text-[#00FF8F] rounded transition-all duration-300;
+  }
+
+  .linktree-btn {
+    @apply border border-slate-800 py-5 px-4 w-full flex flex-row items-center justify-between gap-2 rounded-xl text-sm tracking-widest [&>svg]:text-xl relative overflow-hidden [&:hover>.hover-card]:scale-100;
+  }
+
+  .hover-card {
+    @apply absolute w-full h-full scale-0 top-0 left-0 opacity-[0.07] -z-30 transition-all ease-in-out duration-300;
+  }
+}

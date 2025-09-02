@@ -1,0 +1,92 @@
+---
+import { Image } from "astro:assets";
+import MainLayout from "../layouts/main.astro";
+import FeaturedGallery from "../_components/featured/gallery.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<MainLayout>
+  <!-- HERO -->
+  <div class="space-y-4">
+    <!-- INTRO -->
+    <h1 class="font-serif text-2xl sm:text-4xl md:text-5xl !leading-tight">
+      Hi, I'm Sreehari R,
+      <br />
+      Machine Learning | CSE (AI & ML) Undergrad 
+      <br />
+      at <a
+        href="https://sbce.ac.in/"
+        target="_blank"
+        class="text-ds-gradient">SBCE</a
+      >.
+    </h1>
+
+    <!-- SOCIAL -->
+    <div class="flex gap-6 flex-row flex-wrap py-3">
+      <a href="https://github.com/Sree14hari" target="_blank" class="social-link"
+        ><Icon name="lucide:github" /> GitHub</a
+      >
+      <a
+        href="https://www.linkedin.com/in/sree14hari"
+        target="_blank"
+        class="social-link"><Icon name="lucide:linkedin" /> LinkedIn</a
+      >
+      <a
+        href="https://www.instagram.com/s_ree.har_i"
+        target="_blank"
+        class="social-link"><Icon name="lucide:instagram" /> Instagram</a
+      >
+    </div>
+
+    <!-- ABOUT -->
+    <p class="sm:text-lg">
+      A Software Engineer and AI & ML enthusiast based in India, passionate about crafting intelligent solutions that address real-world problems. I specialize in building scalable, efficient, and user-friendly software systems with a strong focus on artificial intelligence and machine learning.
+    </p>
+
+    <h2 class="text-offcolor sm:text-lg">
+      Currently bringing ideas to life at <a
+        href="https://r3actr-r3actr.web.app/"
+        class="font-semibold text-gradient">@r3actr</a
+      >.
+    </h2>
+
+    <!-- FEATURED GALLERY -->
+    <FeaturedGallery />
+
+    <!-- SAY HI! -->
+    <div
+      class="mt-20 bg-gradient-to-r from-[#00FF8F0f] to-[#00A1FF0f] !bg-opacity-5 py-7 sm:py-12 px-7 sm:px-10 rounded-xl shadow flex flex-col-reverse md:flex-row gap-10 items-start md:items-center justify-between"
+    >
+      <div class="flex-[0.6]">
+        <h3 class="text-4xl font-semibold text-gradient w-fit">Say hi!</h3>
+        <div class="flex gap-6 flex-row flex-wrap py-6">
+          <a
+            href="mailto:sreehari14shr@gmail.com"
+            target="_blank"
+            class="sayhi-link"><Icon name="lucide:mail" /> Mail</a
+          >
+          <a
+            href="https://www.linkedin.com/in/sree14hari"
+            target="_blank"
+            class="sayhi-link"><Icon name="lucide:linkedin" /> LinkedIn</a
+          >
+        </div>
+
+        <p class="max-w-xs">
+          I'm always open to new opportunities, collaborations, and
+          conversations. Feel free to reach out to me.
+        </p>
+      </div>
+      <div class="flex-[0.4]">
+        <Image
+          src="/chat.svg"
+          alt="Say Hi!"
+          class="w-52 ml-auto mt-10 md:mt-auto drop-shadow-lg animate-float"
+          loading="eager"
+          width="256"
+          height="256"
+        />
+      </div>
+    </div>
+  </div>
+</MainLayout>
